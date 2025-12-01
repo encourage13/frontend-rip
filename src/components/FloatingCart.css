@@ -41,3 +41,37 @@
   box-shadow: none;
   transform: none;
 }
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+  .fab {
+    width: 56px;
+    height: 56px;
+    left: 16px;
+    bottom: 16px;
+  }
+  
+  .fab img {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .fab .count {
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .fab {
+    width: 52px;
+    height: 52px;
+    left: 12px;
+    bottom: 12px;
+  }
+  
+  .fab img {
+    width: 28px;
+    height: 28px;
+  }
+}

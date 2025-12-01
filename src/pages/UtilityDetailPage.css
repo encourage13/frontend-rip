@@ -1,22 +1,22 @@
 .container.service {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 24px;
 }
 
 .h1 {
-  margin: 0 0 32px;
+  margin: 32px 0 32px;
   text-align: center;
   font-size: 32px;
   font-weight: 700;
 }
 
-.row {
+/* Две колонки: слева картинка, справа текст */
+.rows {
   display: grid;
   grid-template-columns: 360px 1fr;
   gap: 36px;
   justify-content: center;
-  align-items: start;
+  align-items: flex-start;
   margin-bottom: 24px;
 }
 
@@ -41,13 +41,15 @@
 }
 
 .panel.text {
-  height: 260px;
+  height: 260px;  
   padding: 20px;
   display: flex;
   align-items: center;
   font-size: 18px;
 }
 
+
+/* Тариф под блоком */
 .tariff {
   margin: 28px 0 0;
   text-align: center;
@@ -65,4 +67,75 @@
   border: 1px solid #cfd5db;
   border-radius: 8px;
   margin-right: 8px;
+}
+
+/* ≤1024: две колонки, но уже */
+@media (max-width: 1024px) {
+  .container.service .rows {
+    grid-template-columns: 300px 1fr;
+    gap: 24px;
+  }
+}
+
+/* ≤768: одна колонка, блоки друг под другом */
+@media (max-width: 768px) {
+  .container.service {
+    padding: 16px;
+  }
+
+  .h1 {
+    font-size: 24px;
+    margin-bottom: 24px;
+  }
+
+  .container.service .rows {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .panel.media {
+    height: 200px;
+  }
+
+  .panel.text {
+    min-height: 120px;
+    padding: 16px;
+    font-size: 16px;
+  }
+
+  .tariff {
+    margin: 20px 0 0;
+  }
+
+  .tariff label {
+    font-size: 16px;
+    display: block;
+    margin-bottom: 8px;
+    margin-right: 0;
+  }
+
+  .tariff input {
+    width: 80px;
+    height: 36px;
+  }
+}
+
+/* ≤480: ещё компактнее */
+@media (max-width: 480px) {
+  .container.service {
+    padding: 12px;
+  }
+
+  .h1 {
+    font-size: 20px;
+  }
+
+  .panel.text {
+    font-size: 14px;
+    padding: 12px;
+  }
+
+  .tariff label {
+    font-size: 14px;
+  }
 }

@@ -24,3 +24,7 @@ export interface ApplicationData {
 export interface ServiceFilters {
   search?: string
 }
+
+export interface FilterState {
+  searchTerm: string
+}

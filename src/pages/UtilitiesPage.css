@@ -1,6 +1,6 @@
 .container.index {
   max-width: 1200px;
-  margin: 0 auto;
+  margin-top: 20px;
   padding: 24px;
 }
 
@@ -40,6 +40,7 @@
   border: 1px solid #cfd5db;
   border-radius: 8px;
   box-shadow: 0 2px 0 #cfd5db;
+
 }
 
 .card .media {
@@ -50,21 +51,26 @@
 }
 
 .card .media img {
-  max-width: 90%;
-  max-height: 160px;
-  object-fit: contain;
+  max-width: 90%; /* Занимает всю ширину контейнера */
+  max-height: 90%; /* Занимает всю высоту контейнера */
+
+  object-fit: contain; /* Центрируем изображение */
 }
 
 .card .body {
-  padding: 12px 16px 18px;
+  padding: 16px 20px 20px;
   text-align: center;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .card h3 {
-  margin: 0 0 12px;
   font-size: 18px;
   font-weight: 700;
   text-align: center;
+  line-height: 1.3;
+  min-height: 2.6em;
 }
 
 /* Контейнер кнопок в карточке */
@@ -72,16 +78,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  margin-top: 10px;
+  gap: 12px;
+  margin-top: auto;
 }
 
-/* Одинаковый размер и центр текста у обеих кнопок */
+/* Увеличиваем размер кнопок */
 .card .actions .btn {
-  flex: 1 0 140px;
-  height: 40px;
-  padding: 0 14px;
-  font-size: 14px;
+  flex: 1;
+  min-width: 120px;
+  height: 44px;
+  padding: 0 16px;
+  font-size: 15px;
   line-height: 1;
   display: inline-flex;
   align-items: center;
@@ -91,19 +98,19 @@
   border: none;
   cursor: pointer;
   font-weight: 600;
+  transition: all 0.25s ease;
 }
 
 .btn {
   background: #dbe8ff;
   color: #0b51c5;
-  transition: transform .25s ease, background-color .25s ease, color .25s ease, box-shadow .25s ease;
 }
 
 .btn:hover {
   background: #0b51c5;
   color: #fff;
   transform: translateY(-2px) scale(1.04);
-  box-shadow: 0 10px 22px rgba(11,81,197,.25);
+  
 }
 
 .btn--green {
@@ -113,6 +120,8 @@
 
 .btn--green:hover {
   background: #157347 !important;
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 10px 22px rgba(21,115,71,.25);
 }
 
 /* Стили для состояния загрузки */
@@ -137,3 +146,150 @@
   margin: 0;
   color: #999;
 }
+.btn-more {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-more.btn-more--blue {
+  background-color: #dbe8ff;
+  color: #0b51c5;
+}
+
+.btn-more.btn-more--blue:hover {
+  background-color: #0b51c5;
+  color: #fff;
+}
+
+.btn-more.btn-more--red {
+  background-color: lightcoral;
+  color: #fff;
+}
+
+.btn-more.btn-more--red:hover {
+  background-color: #dc3545;
+  color: #fff;
+}
+.search {
+  display: flex;
+  gap: 8px;
+}
+
+.search input {
+  flex: 1;
+}
+
+.search-button {
+  padding: 0 16px;
+  height: 44px;
+  border-radius: 8px;
+  border: none;
+  background: #dc3545;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.search-button:hover {
+  background: #dc3545;
+  transform: translateY(-2px) scale(1.04);
+}
+
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 1200px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container.index {
+    padding: 16px;
+  }
+
+  .h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .search-wrap {
+    margin-bottom: 24px;
+  }
+
+  .search input {
+    height: 42px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .card .media {
+    height: 200px;
+    padding: 0;
+  }
+
+  .card .body {
+    padding: 14px 16px 18px;
+  }
+
+  .card h3 {
+    font-size: 17px;
+    margin-bottom: 14px;
+  }
+
+  .card .actions {
+    gap: 10px;
+    flex-direction: row;
+  }
+
+  .card .actions .btn {
+    height: 48px; /* Увеличиваем высоту на планшетах */
+    font-size: 15px;
+    min-width: 140px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container.index {
+    padding: 12px;
+  }
+
+  .h1 {
+    font-size: 22px;
+  }
+
+  .card .media {
+    height: 180px;
+    padding: 0;
+  }
+
+  .card .body {
+    padding: 12px 14px 16px;
+  }
+
+  .card h3 {
+    font-size: 16px;
+    margin-bottom: 12px;
+  }
+
+  /* Кнопки как на планшете: в одну линию */
+  .card .actions {
+    flex-direction: row;   /* одна строка */
+    gap: 10px;
+    padding-top: 8px;
+  }
+
+  .card .actions .btn {
+    flex: 1;
+    min-width: 140px;
+    height: 48px;
+    font-size: 15px;
+    margin: 0;
+  }
+}
+
+

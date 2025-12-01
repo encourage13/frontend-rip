@@ -5,19 +5,30 @@ const API_BASE_URL = '/api'
 
 // Функция для обработки ImageURL
 const getValidImageUrl = (imageURL: string | null | undefined): string => {
-  console.log('📸 ImageURL received:', imageURL, 'Type:', typeof imageURL)
-  
-  if (!imageURL || imageURL === "" || imageURL.trim().length === 0) {
-    console.log('🔄 Using default image')
-    return '/images/nothin.jpg'
+  if (!imageURL || imageURL.trim().length === 0) {
+    return 'nothin.jpg'
   }
-  
-  if (imageURL.startsWith('/')) {
-    return `http://localhost:9000${imageURL}`
+
+  // 1. Полный URL MinIO -> /minio + path
+  try {
+    if (imageURL.startsWith('http://')) {
+      const u = new URL(imageURL)
+      return `/minio${u.pathname}`    // /minio/kartinki/...
+    }
+  } catch {
+    // игнорируем
   }
-  
+
+  // 2. Относительный путь именно к MinIO (например, /kartinki/...)
+  if (imageURL.startsWith('/kartinki/')) {
+    return `/minio${imageURL}`
+  }
+
+  // 3. Все остальные относительные пути (иконки фронта) не трогаем
   return imageURL
 }
+
+
 
 // Интерфейсы для ответов бэкенда
 interface BackendServiceDTO {

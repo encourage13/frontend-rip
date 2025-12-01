@@ -12,3 +12,9 @@ body {
 .app {
   min-height: 100vh;
 }
+/* Адаптивность для мобильных устройств */
+@media (max-width: 480px) {
+  body {
+    font-size: 14px;
+  }
+}

@@ -8,6 +8,7 @@ import UtilityDetailPage from './pages/UtilityDetailPage'
 import FloatingCart from './components/FloatingCart'
 import './App.css'
 
+
 const App: FC = () => {
   return (
     <div className="app">

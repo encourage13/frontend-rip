@@ -48,3 +48,30 @@
 main {
   flex: 1;
 }
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 991px) {
+  #root {
+    padding: 1rem;
+  }
+  
+  main {
+    padding-top: 72px;
+  }
+}
+
+@media (max-width: 768px) {
+  #root {
+    padding: 0.5rem;
+  }
+  
+  main {
+    padding-top: 68px;
+  }
+}
+
+@media (max-width: 480px) {
+  main {
+    padding-top: 64px;
+  }
+}

@@ -29,7 +29,7 @@ export const SERVICES_MOCK: Service[] = [
     id: 4,
     title: "Газоснабжение",
     description: "Поставка природного газа для бытовых нужд и отопления.",
-    imageURL: "/images/nothin.jpg",
+    imageURL: "nothin.jpg",
     tariff: 8.3,
     unit: "м³"
   },

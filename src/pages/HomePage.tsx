@@ -4,16 +4,27 @@ import './HomePage.css'
 
 const HomePage: FC = () => {
   return (
-    <Container fluid className="min-vh-100 d-flex align-items-center justify-content-center">
-      <div className="text-center">
-        <h1>Коммунальные услуги</h1>
-        <p className="mb-4">
-          Добро пожаловать в сервис коммунальных услуг Москвы! 
-          Здесь вы можете управлять своими коммунальными платежами.
-        </p>
-        
-      </div>
-    </Container>
+    <div className="home-page-video-wrapper">
+      <video
+        className="home-page-video-bg"
+        src="/frontend-utility-services/bg.mp4"          
+        autoPlay
+        muted
+        loop
+        playsInline
+      />
+      <Container
+        className="home-page min-vh-100 d-flex align-items-center justify-content-center"
+      >
+        <div className="home-page-overlay text-center">
+          <h1>Коммунальные услуги</h1>
+          <p className="mb-4">
+            Добро пожаловать в сервис коммунальных услуг Москвы!
+            Здесь вы можете управлять своими коммунальными платежами.
+          </p>
+        </div>
+      </Container>
+    </div>
   )
 }
 

@@ -21,7 +21,7 @@ const FloatingCart: FC = () => {
   if (cartItemCount === 0) {
     return (
       <button className="fab disabled" disabled>
-        <img src="http://localhost:9000/kartinki/cart_new.png" alt="К заявке" />
+        <img src="cart_new.png" alt="К заявке" />
       </button>
     )
   }
