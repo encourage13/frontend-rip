@@ -1,6 +1,7 @@
 import type { FC } from 'react'
 import { useState, useEffect } from 'react'
 import './FloatingCart.css'
+import { getAsset } from '../utils/path'
 
 const FloatingCart: FC = () => {
   const [cartItemCount, setCartItemCount] = useState(0)
@@ -21,7 +22,7 @@ const FloatingCart: FC = () => {
   if (cartItemCount === 0) {
     return (
       <button className="fab disabled" disabled>
-        <img src="cart_new.png" alt="К заявке" />
+        <img src={getAsset('cart_new.png')} alt="К заявке" />
       </button>
     )
   }

@@ -1,13 +1,14 @@
 import type { FC } from 'react'
 import { Container } from 'react-bootstrap'
 import './HomePage.css'
+import { getAsset } from '../utils/path'
 
 const HomePage: FC = () => {
   return (
     <div className="home-page-video-wrapper">
       <video
         className="home-page-video-bg"
-        src="/frontend-utility-services/bg.mp4"          
+        src={getAsset('bg.mp4')}         
         autoPlay
         muted
         loop
@@ -20,7 +21,7 @@ const HomePage: FC = () => {
           <h1>Коммунальные услуги</h1>
           <p className="mb-4">
             Добро пожаловать в сервис коммунальных услуг Москвы!
-            Здесь вы можете управлять своими коммунальными платежами.
+            Здесь вы можете управлять своим и коммунальными платежами.
           </p>
         </div>
       </Container>

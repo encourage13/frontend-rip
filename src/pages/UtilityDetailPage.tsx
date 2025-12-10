@@ -7,7 +7,7 @@ import { servicesApi } from '../modules/api'
 import BreadCrumbs from '../components/BreadCrumbs'
 import { ROUTES, ROUTE_LABELS } from '../Routes'
 import './UtilityDetailPage.css'
-import nothinImg from '/nothin.jpg'
+import { getAsset } from '../utils/path'
 
 const UtilityDetailPage: FC = () => {
   const { id } = useParams()
@@ -81,7 +81,7 @@ const UtilityDetailPage: FC = () => {
             src={service.imageURL} 
             alt={service.title}
             onError={(e) => {
-              (e.target as HTMLImageElement).src = nothinImg
+              (e.target as HTMLImageElement).src = getAsset('nothin.jpg')
             }}
           />
         </div>

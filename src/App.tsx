@@ -1,12 +1,26 @@
 import type { FC } from 'react'
+import { Routes, Route } from 'react-router-dom'
+import Header from './components/Header'
+import HomePage from './pages/HomePage'
+import UtilitiesPage from './pages/UtilitiesPage'
+import UtilityDetailPage from './pages/UtilityDetailPage'
+import FloatingCart from './components/FloatingCart'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
-const AppTauri: FC = () => {
+const App: FC = () => {
   return (
-    <div style={{ padding: 20 }}>
-      <h1>UTILITY SERVICES (Tauri)</h1>
-      <p>Если ты видишь этот текст, exe работает.</p>
-    </div>
+    <>
+      <Header />
+      <main style={{ paddingTop: '70px' }}>
+        <Routes>
+          {/* Пути ОТНОСИТЕЛЬНО basename */}
+          <Route path="/" element={<HomePage />} />                       
+          <Route path="/utilities" element={<UtilitiesPage />} />         
+          <Route path="/utilities/:id" element={<UtilityDetailPage />} /> 
+        </Routes>
+      </main>
+      <FloatingCart />
+    </>
   )
 }
-
-export default AppTauri
+export default App

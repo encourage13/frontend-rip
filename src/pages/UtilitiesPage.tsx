@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import type { Service, ServiceFilters } from '../types'
 import { servicesApi } from '../modules/api'
 import './UtilitiesPage.css'
-
+import { getAsset } from '../utils/path'
 import { useAppDispatch, useAppSelector } from '../store/hooks'
 import { selectSearchTerm, setSearchTerm } from '../store/slices/filterSlice'
 
@@ -85,7 +85,7 @@ const UtilitiesPage: FC = () => {
                   src={service.imageURL}
                   alt={service.title}
                   onError={(e) => {
-                    (e.target as HTMLImageElement).src = 'nothin.jpg'
+                    (e.target as HTMLImageElement).src = getAsset('nothin.jpg')
                   }}
                 />
               </div>
