@@ -7,7 +7,7 @@ const HomePage: FC = () => {
     <div className="home-page-video-wrapper">
       <video
         className="home-page-video-bg"
-        src="/frontend-utility-services/bg.mp4"          
+        src="bg.mp4"          
         autoPlay
         muted
         loop

@@ -6,13 +6,18 @@ import { store } from './store'
 import { BrowserRouter } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './index.css'
+import {registerSW} from "virtual:pwa-register";
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <Provider store={store}>
-      <BrowserRouter  basename="/frontend-utility-services/">
+      <BrowserRouter>
         <App />
       </BrowserRouter>
     </Provider>
   </React.StrictMode>,
 )
+
+if ("serviceWorker" in navigator) {
+  registerSW()
+}
